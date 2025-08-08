@@ -6,13 +6,8 @@
   <title>Billard Spieltage – Kalender-Sync</title>
   <style>
     :root{
-      --bg:#1b1b1b;
-      --card:#2e2e2e;
-      --fg:#f0f0f0;
-      --muted:#aaaaaa;
-      --accent:#00ff88;
-      --link:#00bfff;
-      --brand:#006400;
+      --bg:#1b1b1b; --card:#2e2e2e; --fg:#f0f0f0; --muted:#aaaaaa;
+      --accent:#00ff88; --link:#00bfff; --brand:#006400;
     }
     *{box-sizing:border-box}
     body{font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;margin:0;background:var(--bg);color:var(--fg)}
@@ -41,13 +36,10 @@
     .btn{border:1px solid #3a3a3a;background:#212121;color:#fff;padding:.4rem .7rem;border-radius:8px;cursor:pointer}
     .btn:hover{background:#282828}
     .btn.small{font-size:.9em;padding:.3rem .55rem}
-    .hint{font-size:.9em;color:var(--muted)}
-    .qr-wrap{display:flex;align-items:center;gap:.5rem}
-    .qr{width:92px;height:92px;background:#fff;border-radius:8px;padding:6px}
+    .hint{font-size:.9em;color:var(--muted);margin:.2rem 0 .6rem}
     .meta{margin-top:1.25rem;font-size:.9em;color:var(--muted)}
     .k-steps ol{margin:.4rem 0 .2rem .9rem}
     .k-steps li{margin:.25rem 0}
-    .flex{display:flex;gap:1rem;flex-wrap:wrap}
     .spacer{height:.5rem}
     .badge{display:inline-block;background:#244; color:#bfe; border:1px solid #3aa; padding:.1rem .5rem; border-radius:999px; font-size:.8em}
   </style>
@@ -71,6 +63,7 @@
     <section id="mobile" class="section active">
       <div class="card">
         <h2>iPhone (Apple Kalender)</h2>
+        <p class="hint">💡 Der Button <em>„Direkt abonnieren“</em> funktioniert auf iPhone/iPad sofort – er öffnet direkt die Kalender-App. <strong>Falls der Button nicht funktioniert, nutze die Kurzanleitung unten als Alternative.</strong></p>
         <div class="k-steps">
           <ol>
             <li>Einstellungen öffnen</li>
@@ -81,21 +74,20 @@
             <li>Gewünschte Link-URL einfügen (siehe unten)</li>
             <li><strong>Weiter</strong> → <strong>Sichern</strong></li>
           </ol>
-          <p class="hint">Tipp: Der Button <em>„Direkt abonnieren“</em> öffnet die Kalender-App per <code>webcal://</code>.</p>
         </div>
       </div>
 
       <div class="card">
         <h2>Android (Google Kalender)</h2>
+        <p class="hint">⚠ Der Button <em>„Direkt abonnieren“</em> funktioniert auf Android nicht. Bitte den Kalender-Link kopieren und in Google Kalender per <em>„Per URL“</em> hinzufügen.</p>
         <div class="k-steps">
           <ol>
             <li>Im Browser <a href="https://calendar.google.com" target="_blank" rel="noopener">calendar.google.com</a> öffnen</li>
-            <li>Mit demselben Google-Konto anmelden wie am Smartphone</li>
+            <li>Mit dem gleichen Google-Konto anmelden wie am Smartphone</li>
             <li>Links bei <strong>Weitere Kalender</strong> auf <strong>+</strong> klicken</li>
             <li><strong>Per URL</strong> wählen</li>
-            <li>Gewünschte Link-URL einfügen (siehe unten) → <strong>Kalender hinzufügen</strong></li>
+            <li>Gewünschte Link-URL einfügen → <strong>Kalender hinzufügen</strong></li>
           </ol>
-          <p class="hint">Die Termine erscheinen automatisch in der Kalender-App.</p>
         </div>
       </div>
     </section>
@@ -105,18 +97,19 @@
       <div class="grid">
         <div class="card">
           <h2>Outlook (Windows/Mac) – Abonnieren</h2>
+          <p class="hint">⚠ Der Button <em>„Direkt abonnieren“</em> funktioniert nur, wenn <code>webcal://</code> im System mit Outlook verknüpft ist. <strong>Falls der Button nicht funktioniert, nutze die Kurzanleitung unten als Alternative.</strong></p>
           <div class="k-steps">
             <ol>
               <li><strong>Datei</strong> → <strong>Kontoeinstellungen</strong> → <strong>Kontoeinstellungen…</strong></li>
               <li>Reiter <strong>Internetkalender</strong> → <strong>Neu…</strong></li>
               <li>ICS-URL einfügen → <strong>Hinzufügen</strong> → Namen vergeben → <strong>OK</strong></li>
             </ol>
-            <p class="hint"><span class="badge">Wichtig</span> „Abonnieren“ ≠ „Importieren“. Nur beim Abo gibt es Auto-Updates.</p>
           </div>
         </div>
 
         <div class="card">
           <h2>Windows 10/11 „Kalender“</h2>
+          <p class="hint">⚠ <em>„Direkt abonnieren“</em> klappt nur, wenn <code>webcal://</code> mit der Kalender-App verknüpft ist. <strong>Falls der Button nicht funktioniert, nutze die Kurzanleitung unten als Alternative.</strong></p>
           <div class="k-steps">
             <ol>
               <li>App öffnen → <strong>Einstellungen</strong> (Zahnrad)</li>
@@ -129,6 +122,7 @@
 
         <div class="card">
           <h2>macOS (Apple Kalender am Mac)</h2>
+          <p class="hint">💡 Der Button <em>„Direkt abonnieren“</em> öffnet die Kalender-App mit dem Abo-Dialog. <strong>Falls der Button nicht funktioniert, nutze die Kurzanleitung unten als Alternative.</strong></p>
           <div class="k-steps">
             <ol>
               <li><strong>Kalender</strong> öffnen → <strong>Ablage</strong> → <strong>Neues Kalenderabonnement…</strong></li>
@@ -139,6 +133,7 @@
 
         <div class="card">
           <h2>Thunderbird (Lightning)</h2>
+          <p class="hint">⚠ Der Button <em>„Direkt abonnieren“</em> wird nicht unterstützt. Bitte Link kopieren und als <em>iCalendar (ICS)</em> im Netzwerk hinzufügen.</p>
           <div class="k-steps">
             <ol>
               <li><strong>Kalender</strong> → <strong>Neuer Kalender</strong> → <strong>Im Netzwerk</strong></li>
@@ -158,26 +153,7 @@
     <div class="meta" id="metaNote"></div>
   </main>
 
-  <!-- QRCode generator (MIT, minimal, inline) -->
-  <script>
-/*!
- * QRCode.js (https://github.com/davidshimjs/qrcodejs) – MIT License
- * Minified inline for single-file usage.
- */
-!function(o){function t(o){this.mode=t.Mode.MODE_8BIT_BYTE,this.data=o,this.parsedData=[];for(var e=0,n=this.data.length;e<n;e++){var r=[],i=this.data.charCodeAt(e);i>65536?(r[0]=240|(1835008&i)>>>18,r[1]=128|(258048&i)>>>12,r[2]=128|(4032&i)>>>6,r[3]=128|63&i):i>2048?(r[0]=224|(61440&i)>>>12,r[1]=128|(4032&i)>>>6,r[2]=128|63&i):i>128?(r[0]=192|(1984&i)>>>6,r[1]=128|63&i):r[0]=i,this.parsedData.push(r)}this.parsedData=Array.prototype.concat.apply([],this.parsedData)}function e(o,t){this.typeNumber=o,this.errorCorrectLevel=t,this.modules=null,this.moduleCount=0,this.dataCache=null,this.dataList=[]}function n(o,t){if(void 0==o.length)throw new Error(o.length+"/"+t);for(var e=0;e<o.length&&0==o[e];)e++;this.num=Array(o.length-e+t);for(var n=0;n<o.length-e;n++)this.num[n]=o[n+e]}function r(o,t){this.totalCount=o,this.dataCount=t}t.prototype={getLength:function(o){return this.parsedData.length},write:function(o){for(var t=0,e=this.parsedData.length;t<e;t++)o.put(this.parsedData[t],8)}},e.prototype={addData:function(o){this.dataList.push(new t(o)),this.dataCache=null},isDark:function(o,t){if(0>o||this.moduleCount<=o||0>t||this.moduleCount<=t)throw new Error(o+","+t);return this.modules[o][t]},getModuleCount:function(){return this.moduleCount},make:function(){this.makeImpl(!1,this.getBestMaskPattern())},makeImpl:function(o,t){this.moduleCount=4*this.typeNumber+17,this.modules=new Array(this.moduleCount);for(var e=0;e<this.moduleCount;e++){this.modules[e]=new Array(this.moduleCount);for(var n=0;n<this.moduleCount;n++)this.modules[e][n]=null}this.setupPositionProbePattern(0,0),this.setupPositionProbePattern(this.moduleCount-7,0),this.setupPositionProbePattern(0,this.moduleCount-7),this.setupPositionAdjustPattern(),this.setupTimingPattern(),this.setupTypeInfo(o,t),this.typeNumber>=7&&this.setupTypeNumber(o),null==this.dataCache&&(this.dataCache=e.createData(this.typeNumber,this.errorCorrectLevel,this.dataList)),this.mapData(this.dataCache,t)},setupPositionProbePattern:function(o,t){for(var e=-1;7>=e;e++)if(!(0>o+e||this.moduleCount<=o+e))for(var n=-1;7>=n;n++)0>t+n||this.moduleCount<=t+n||(this.modules[o+e][t+n]=e>=0&&6>=e&&(0==n||6==n)||n>=0&&6>=n&&(0==e||6==e)||e>=2&&4>=e&&n>=2&&4>=n?!0:!1)},getBestMaskPattern:function(){for(var o=0,t=0,e=0;8>e;e++){this.makeImpl(!0,e);var n=e.getLostPoint(this);(0==e||t>n)&&(t=n,o=e)}return o}},e.PAD0=236,e.PAD1=17,e.createData=function(o,t,r){for(var i=u.getRSBlocks(o,t),a=new s,f=0;f<r.length;f++){var l=r[f];a.put(l.mode,4),a.put(l.getLength(o),u.getLengthInBits(l.mode,o)),l.write(a)}for(var c=0,f=0;f<i.length;f++)c+=i[f].dataCount;if(a.getLengthInBits()>8*c)throw new Error("code length overflow. ("+a.getLengthInBits()+">"+8*c+")");for(a.getLengthInBits()+4<=8*c&&a.put(0,4);a.getLengthInBits()%8!=0;)a.putBit(!1);for(;!(a.getLengthInBits()>=8*c);)a.put(e.PAD0,8),a.getLengthInBits()>=8*c||a.put(e.PAD1,8);return e.createBytes(a,i)},e.createBytes=function(o,t){for(var e=0,n=0,r=0,i=new Array(t.length),a=new Array(t.length),u=0;u<t.length;u++){var l=t[u].dataCount,c=t[u].totalCount-l;n=Math.max(n,l),r=Math.max(r,c),i[u]=new Array(l);for(var h=0;h<i[u].length;h++)i[u][h]=255&o.buffer[h+e];e+=l;var d=256;for(h=0;h<i[u].length;h++)d^=i[u][h];a[u]=new Array(c);for(h=0;h<a[u].length;h++)a[u][h]=0}for(var p=0,h=0;h<n;h++)for(u=0;u<t.length;u++)h<i[u].length&&(o.buffer[p++]=i[u][h]);for(h=0;h<r;h++)for(u=0;u<t.length;u++)h<a[u].length&&(o.buffer[p++]=a[u][h]);return o.buffer};var i={PATTERN_POSITION_TABLE:[[],[6,18],[6,22],[6,26],[6,30],[6,34],[6,22,38],[6,24,42],[6,26,46],[6,28,50],[6,30,54]],G15:1335,G18:7973,G15_MASK:21522,getBCHTypeInfo:function(o){for(var t=o<<10;0<=i.getBCHDigit(t)-i.getBCHDigit(i.G15);)t^=i.G15<<i.getBCHDigit(t)-i.getBCHDigit(i.G15);return(o<<10|t)^i.G15_MASK},getBCHTypeNumber:function(o){for(var t=o<<12;0<=i.getBCHDigit(t)-i.getBCHDigit(i.G18);)t^=i.G18<<i.getBCHDigit(t)-i.getBCHDigit(i.G18);return o<<12|t},getBCHDigit:function(o){for(var t=0;0!=o;)t++,o>>>=1;return t},getPatternPosition:function(o){return i.PATTERN_POSITION_TABLE[o-1]},getMask:function(o,t,e){switch(o){case 0:return(t+e)%2==0;case 1:return t%2==0;case 2:return e%3==0;case 3:return(t+e)%3==0;case 4:return(Math.floor(t/2)+Math.floor(e/3))%2==0;case 5:return t*e%2+ t*e%3==0;case 6:return(t*e%2+ t*e%3)%2==0;case 7:return(t*e%3+ (t+e)%2)%2==0;default:throw new Error("bad maskPattern:"+o)}},getLostPoint:function(o){for(var t=o.getModuleCount(),e=0,n=0;n<t;n++)for(var r=0;r<t;r++){for(var a=0,u=o.isDark(n,r),l=-1;1>=l;l++)if(!(0>n+l||n+l>=t))for(var c=-1;1>=c;c++)0>r+c||r+c>=t||0==l&&0==c||u==o.isDark(n+l,r+c)&&a++;a>5&&(e+=3+a-5)}for(n=0;t-1>n;n++)for(r=0;t-1>r;r++){var h=0;o.isDark(n,r)&&h++,o.isDark(n+1,r)&&h++,o.isDark(n,r+1)&&h++,o.isDark(n+1,r+1)&&h++,(0==h||4==h)&&(e+=3)}for(n=0;n<t;n++)for(r=0;r<t-6;r++)o.isDark(n,r)&&!o.isDark(n,r+1)&&o.isDark(n,r+2)&&o.isDark(n,r+3)&&o.isDark(n,r+4)&&!o.isDark(n,r+5)&&o.isDark(n,r+6)&&(e+=40);for(r=0;r<t;r++)for(n=0;n<t-6;n++)o.isDark(n,r)&&!o.isDark(n+1,r)&&o.isDark(n+2,r)&&o.isDark(n+3,r)&&o.isDark(n+4,r)&&!o.isDark(n+5,r)&&o.isDark(n+6,r)&&(e+=40);for(var d=0,p=0,v=0;n=t*n,p=0,r=0;r<t;r++)o.isDark(r,n)&&d++;v=Math.abs(100*d/t-50)/5,e+=10*v;return e}},a=function(){this.buffer=[],this.length=0};a.prototype={getBuffer:function(){return this.buffer},getLengthInBits:function(){return this.length},put:function(o,t){for(var e=0;t>e;e++)this.putBit((o>>>t-e-1&1)==1)},putBit:function(o){var t=this.length>>3;this.buffer.length<=t&&this.buffer.push(0),o&&(this.buffer[t]|=128>>>this.length%8),this.length++}};var u={QRRSBlock:r,getRSBlocks:function(o,t){return u.getRsBlockTable(o,t).map(function(o){return new r(o[0],o[1])})},getLengthInBits:function(o,t){if(1<=t&&10>t)switch(o){case t.Mode.MODE_8BIT_BYTE:return 8;default:throw new Error("mode:"+o)}else if(27>t)switch(o){case t.Mode.MODE_8BIT_BYTE:return 16;default:throw new Error("mode:"+o)}else if(41>t)switch(o){case t.Mode.MODE_8BIT_BYTE:return 16;default:throw new Error("mode:"+o)}else throw new Error("type:"+t)},getRsBlockTable:function(o,t){return[[],[[1,19]],[[1,34]],[[1,55]],[[1,80]],[[1,108]],[[2,68]],[[2,78]],[[2,97]],[[2,116]],[[2,68,2,69]]][o]},};t.Mode={MODE_8BIT_BYTE:4};
-    // simple facade
-    function makeQR(el, text, size){
-      var q = new e(5, 1); // typeNumber=5 (fits long URLs), EC level=L(1)
-      q.addData(text); q.make();
-      var count=q.getModuleCount(), scale=Math.floor(size/count);
-      var canvas=document.createElement('canvas'); canvas.width=canvas.height=scale*count;
-      var ctx=canvas.getContext('2d'); ctx.fillStyle='#fff'; ctx.fillRect(0,0,canvas.width,canvas.height); ctx.fillStyle='#000';
-      for(var r=0;r<count;r++){for(var c=0;c<count;c++){ if(q.isDark(r,c)) ctx.fillRect(c*scale,r*scale,scale,scale); } }
-      el.innerHTML=''; el.appendChild(canvas);
-    }
-  </script>
-
-  <!-- App logic -->
+  <!-- App logic (ohne QR) -->
   <script>
     // === DATA ===
     const CALENDARS = [
@@ -189,35 +165,25 @@
     ];
 
     // Optional: Gesamt-Kalender (alle Teams). Wenn vorhanden, hier URL eintragen:
-    const COMBINED_CAL_URL = ""; // Beispiel: "https://…/alle-teams.ics"  (leer lassen, um auszublenden)
+    const COMBINED_CAL_URL = ""; // z. B. "https://…/alle-teams.ics"  (leer lassen, um auszublenden)
 
-    // === RENDER ===
     const list = document.getElementById('calendarList');
 
     function toWebcal(url){
-      try{
-        const u = new URL(url);
-        u.protocol = 'webcal:';
-        return u.toString();
-      }catch{ return url.replace(/^https?:/,'webcal:'); }
+      try{ const u=new URL(url); u.protocol='webcal:'; return u.toString(); }
+      catch{ return url.replace(/^https?:/,'webcal:'); }
     }
 
     function calendarItemHtml(item, index){
       const webcal = toWebcal(item.ics);
-      const safeId = 'qr_'+index;
       return `
         <div class="card kalender-item">
           <div class="kalender-title">${item.name}</div>
           <div class="row">
             <a class="btn small" href="${webcal}">Direkt abonnieren</a>
             <button class="btn small" data-copy="${item.ics}">Link kopieren</button>
-            <button class="btn small" data-qr="${safeId}" data-url="${webcal}">QR anzeigen</button>
           </div>
           <div class="url">${item.ics}</div>
-          <div class="row qr-wrap" style="display:none" id="${safeId}">
-            <div class="qr"></div>
-            <span class="hint">QR öffnet <code>webcal://</code> direkt in deiner Kalender-App.</span>
-          </div>
         </div>
       `;
     }
@@ -238,23 +204,6 @@
             const t=btn.textContent; btn.textContent='Kopiert!'; setTimeout(()=>btn.textContent=t,1400);
           }catch{
             alert('Konnte den Link nicht in die Zwischenablage kopieren.');
-          }
-        });
-      });
-
-      // QR buttons
-      document.querySelectorAll('button[data-qr]').forEach(btn=>{
-        btn.addEventListener('click', ()=>{
-          const wrap = document.getElementById(btn.getAttribute('data-qr'));
-          const url = btn.getAttribute('data-url');
-          const qrBox = wrap.querySelector('.qr');
-          const visible = wrap.style.display !== 'none';
-          if (visible){
-            wrap.style.display='none';
-          }else{
-            // (Re)generate QR
-            makeQR(qrBox, url, 90);
-            wrap.style.display='flex';
           }
         });
       });
