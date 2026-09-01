@@ -1,229 +1,41 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Billard Spieltage – Kalender-Sync</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>BC Phoenix – Spieltage abonnieren</title>
   <style>
-    :root{
-      --bg:#1b1b1b; --card:#2e2e2e; --fg:#f0f0f0; --muted:#aaaaaa;
-      --accent:#00ff88; --link:#00bfff; --brand:#006400;
-    }
-    *{box-sizing:border-box}
-    body{font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;margin:0;background:var(--bg);color:var(--fg)}
-    header{background:var(--brand);padding:1rem;text-align:center;color:#fff}
-    main{padding:2rem;max-width:1000px;margin:auto}
-    h1,h2{color:var(--accent);margin:0 0 .5rem}
-    p{line-height:1.6}
-    a{color:var(--link);text-decoration:none}
-    a:hover{text-decoration:underline}
-    .tabs{display:flex;gap:.5rem;flex-wrap:wrap;margin:1rem 0}
-    .tab-btn{border:1px solid var(--accent);background:transparent;color:var(--accent);padding:.5rem .9rem;border-radius:999px;cursor:pointer}
-    .tab-btn.active{background:var(--accent);color:#0b0b0b;border-color:transparent}
-    .section{display:none;animation:fade .2s ease}
-    .section.active{display:block}
-    @keyframes fade{from{opacity:.6}to{opacity:1}}
-
-    .card{background:var(--card);padding:1rem;border-radius:12px;margin:.9rem 0}
-    .grid{display:grid;gap:1rem}
-    @media (min-width:720px){.grid{grid-template-columns:repeat(2,1fr)}}
-    @media (min-width:960px){.grid{grid-template-columns:repeat(3,1fr)}}
-
-    .kalender-item{display:flex;flex-direction:column;gap:.65rem}
-    .kalender-title{font-weight:700}
-    .row{display:flex;gap:.5rem;align-items:center;flex-wrap:wrap}
-    .url{font-size:.9em;color:var(--muted);word-break:break-all}
-    .btn{border:1px solid #3a3a3a;background:#212121;color:#fff;padding:.4rem .7rem;border-radius:8px;cursor:pointer}
-    .btn:hover{background:#282828}
-    .btn.small{font-size:.9em;padding:.3rem .55rem}
-    .hint{font-size:.9em;color:var(--muted);margin:.2rem 0 .6rem}
-    .meta{margin-top:1.25rem;font-size:.9em;color:var(--muted)}
-    .k-steps ol{margin:.4rem 0 .2rem .9rem}
-    .k-steps li{margin:.25rem 0}
-    .spacer{height:.5rem}
-    .badge{display:inline-block;background:#244; color:#bfe; border:1px solid #3aa; padding:.1rem .5rem; border-radius:999px; font-size:.8em}
+    :root{color-scheme:dark;--bg:#10191b;--card:#1d2a2d;--green:#57e389;--text:#f4f8f5;--muted:#b9c6be}
+    *{box-sizing:border-box}body{margin:0;font:16px system-ui,sans-serif;background:linear-gradient(145deg,#102b24,#10191b 45%);color:var(--text)}
+    main{max-width:760px;margin:auto;padding:40px 20px 56px}h1{margin:0;font-size:clamp(2rem,7vw,3.4rem)}h1 span{color:var(--green)}
+    .lead{color:var(--muted);margin:12px 0 28px;font-size:1.12rem}.grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
+    .card{background:var(--card);border:1px solid #406052;border-radius:16px;padding:16px}h2{margin:0 0 12px;font-size:1.05rem}
+    .buttons{display:flex;gap:8px;flex-wrap:wrap}a,button{border:0;border-radius:9px;padding:9px 11px;font:inherit;cursor:pointer;text-decoration:none}
+    a{background:var(--green);color:#092014;font-weight:700}button{background:#31443c;color:var(--text)}.help{margin-top:28px;color:var(--muted);line-height:1.55}.help strong{color:var(--text)}code{color:var(--green)}
   </style>
 </head>
 <body>
-  <header>
-    <h1>Billard Spieltage – Kalender-Synchronisation</h1>
-    <p>Immer auf dem neuesten Stand bleiben</p>
-  </header>
-
   <main>
-    <p>Verbinde die Spieltage der Mannschaften mit deinem Kalender. Wähle unten, ob du die Anleitung für <strong>Mobil</strong> oder <strong>Desktop</strong> sehen möchtest. Die Links funktionieren in beiden Fällen.</p>
-
-    <!-- Tabs -->
-    <div class="tabs">
-      <button class="tab-btn active" data-target="#mobile">Mobil</button>
-      <button class="tab-btn" data-target="#desktop">Desktop / Büro</button>
-    </div>
-
-    <!-- Mobil -->
-    <section id="mobile" class="section active">
-      <div class="card">
-        <h2>iPhone (Apple Kalender)</h2>
-        <p class="hint">💡 Der Button <em>„Direkt abonnieren“</em> funktioniert auf iPhone/iPad sofort – er öffnet direkt die Kalender-App. <strong>Falls der Button nicht funktioniert, nutze die Kurzanleitung unten als Alternative.</strong></p>
-        <div class="k-steps">
-          <ol>
-            <li>Einstellungen öffnen</li>
-            <li>Nach unten: <strong>Kalender</strong></li>
-            <li><strong>Accounts</strong> → <strong>Account hinzufügen</strong></li>
-            <li>Ganz unten <strong>Andere</strong></li>
-            <li><strong>Kalenderabo hinzufügen</strong></li>
-            <li>Gewünschte Link-URL einfügen (siehe unten)</li>
-            <li><strong>Weiter</strong> → <strong>Sichern</strong></li>
-          </ol>
-        </div>
-      </div>
-
-      <div class="card">
-        <h2>Android (Google Kalender)</h2>
-        <p class="hint">⚠ Der Button <em>„Direkt abonnieren“</em> funktioniert auf Android nicht. Bitte den Kalender-Link kopieren und in Google Kalender per <em>„Per URL“</em> hinzufügen.</p>
-        <div class="k-steps">
-          <ol>
-            <li>Im Browser <a href="https://calendar.google.com" target="_blank" rel="noopener">calendar.google.com</a> öffnen</li>
-            <li>Mit dem gleichen Google-Konto anmelden wie am Smartphone</li>
-            <li>Links bei <strong>Weitere Kalender</strong> auf <strong>+</strong> klicken</li>
-            <li><strong>Per URL</strong> wählen</li>
-            <li>Gewünschte Link-URL einfügen → <strong>Kalender hinzufügen</strong></li>
-          </ol>
-        </div>
-      </div>
+    <h1>BC Phoenix <span>Spieltage</span></h1>
+    <p class="lead">Wähle deine Mannschaft und abonniere ihren Spielplan. Änderungen erscheinen automatisch im Kalender.</p>
+    <section id="calendars" class="grid" aria-label="Kalender"></section>
+    <section class="help">
+      <p><strong>iPhone, Outlook oder Apple Kalender:</strong> „Abonnieren“ wählen.</p>
+      <p><strong>Android / Google Kalender:</strong> „Link kopieren“ → im Browser <code>calendar.google.com</code> → „Weitere Kalender“ → „Per URL“.</p>
     </section>
-
-    <!-- Desktop -->
-    <section id="desktop" class="section">
-      <div class="grid">
-        <div class="card">
-          <h2>Outlook (Windows/Mac) – Abonnieren</h2>
-          <p class="hint">⚠ Der Button <em>„Direkt abonnieren“</em> funktioniert nur, wenn <code>webcal://</code> im System mit Outlook verknüpft ist. <strong>Falls der Button nicht funktioniert, nutze die Kurzanleitung unten als Alternative.</strong></p>
-          <div class="k-steps">
-            <ol>
-              <li><strong>Datei</strong> → <strong>Kontoeinstellungen</strong> → <strong>Kontoeinstellungen…</strong></li>
-              <li>Reiter <strong>Internetkalender</strong> → <strong>Neu…</strong></li>
-              <li>ICS-URL einfügen → <strong>Hinzufügen</strong> → Namen vergeben → <strong>OK</strong></li>
-            </ol>
-          </div>
-        </div>
-
-        <div class="card">
-          <h2>Windows 10/11 „Kalender“</h2>
-          <p class="hint">⚠ <em>„Direkt abonnieren“</em> klappt nur, wenn <code>webcal://</code> mit der Kalender-App verknüpft ist. <strong>Falls der Button nicht funktioniert, nutze die Kurzanleitung unten als Alternative.</strong></p>
-          <div class="k-steps">
-            <ol>
-              <li>App öffnen → <strong>Einstellungen</strong> (Zahnrad)</li>
-              <li><strong>Konten verwalten</strong> → <strong>Konto hinzufügen</strong></li>
-              <li><strong>Abonnieren über Internet</strong> (iCal/URL) wählen</li>
-              <li>ICS-URL einfügen → <strong>Speichern</strong></li>
-            </ol>
-          </div>
-        </div>
-
-        <div class="card">
-          <h2>macOS (Apple Kalender am Mac)</h2>
-          <p class="hint">💡 Der Button <em>„Direkt abonnieren“</em> öffnet die Kalender-App mit dem Abo-Dialog. <strong>Falls der Button nicht funktioniert, nutze die Kurzanleitung unten als Alternative.</strong></p>
-          <div class="k-steps">
-            <ol>
-              <li><strong>Kalender</strong> öffnen → <strong>Ablage</strong> → <strong>Neues Kalenderabonnement…</strong></li>
-              <li>ICS-URL einfügen → <strong>Abonnieren</strong> → Aktualisierungsintervall wählen</li>
-            </ol>
-          </div>
-        </div>
-
-        <div class="card">
-          <h2>Thunderbird (Lightning)</h2>
-          <p class="hint">⚠ Der Button <em>„Direkt abonnieren“</em> wird nicht unterstützt. Bitte Link kopieren und als <em>iCalendar (ICS)</em> im Netzwerk hinzufügen.</p>
-          <div class="k-steps">
-            <ol>
-              <li><strong>Kalender</strong> → <strong>Neuer Kalender</strong> → <strong>Im Netzwerk</strong></li>
-              <li>Format: <strong>iCalendar (ICS)</strong> → ICS-URL einfügen</li>
-              <li>Namen/Farbe wählen → <strong>Weiter</strong></li>
-            </ol>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Kalender-Links -->
-    <div class="spacer"></div>
-    <h2>Kalender-Links</h2>
-    <div id="calendarList" class="grid"></div>
-
-    <div class="meta" id="metaNote"></div>
   </main>
-
-  <!-- App logic (ohne QR) -->
   <script>
-    // === DATA ===
-    const CALENDARS = [
-      { name: "1. Mannschaft", ics: "https://calendar.google.com/calendar/ical/15cd780fbc7b2782e9e0ece172846eff4081d6db4abaff94c99bdc1ba9c5aa87@group.calendar.google.com/public/basic.ics" },
-      { name: "2. Mannschaft", ics: "https://calendar.google.com/calendar/ical/f34f98308f9ca1f14ec365a9a5b32c34afbb996816a27803b9de3df45c915662@group.calendar.google.com/public/basic.ics" },
-      { name: "3. Mannschaft", ics: "https://calendar.google.com/calendar/ical/b2dab573a9d4c4133b56cbe8a716c03aeed139cbc100e08dc506862e6491198d@group.calendar.google.com/public/basic.ics" },
-      { name: "4. Mannschaft", ics: "https://calendar.google.com/calendar/ical/67a48247fb224cc1ffbd6b268233e10ecbbdc3ceaf0770a60baae489825111d1@group.calendar.google.com/public/basic.ics" },
-      { name: "5. Mannschaft", ics: "https://calendar.google.com/calendar/ical/a478764202d59184a6d9384807552e38a7a8dc44c8bee72782aa709565bb62f7@group.calendar.google.com/public/basic.ics" },
-      { name: "Alle Heimspiele", ics: "https://calendar.google.com/calendar/ical/bcphoenix1996@gmail.com/public/basic.ics" },
+    const calendars = [
+      {name:"1. Mannschaft",ics:"https://calendar.google.com/calendar/ical/15cd780fbc7b2782e9e0ece172846eff4081d6db4abaff94c99bdc1ba9c5aa87@group.calendar.google.com/public/basic.ics"},
+      {name:"2. Mannschaft",ics:"https://calendar.google.com/calendar/ical/f34f98308f9ca1f14ec365a9a5b32c34afbb996816a27803b9de3df45c915662@group.calendar.google.com/public/basic.ics"},
+      {name:"3. Mannschaft",ics:"https://calendar.google.com/calendar/ical/b2dab573a9d4c4133b56cbe8a716c03aeed139cbc100e08dc506862e6491198d@group.calendar.google.com/public/basic.ics"},
+      {name:"4. Mannschaft",ics:"https://calendar.google.com/calendar/ical/67a48247fb224cc1ffbd6b268233e10ecbbdc3ceaf0770a60baae489825111d1@group.calendar.google.com/public/basic.ics"},
+      {name:"5. Mannschaft",ics:"https://calendar.google.com/calendar/ical/a478764202d59184a6d9384807552e38a7a8dc44c8bee72782aa709565bb62f7@group.calendar.google.com/public/basic.ics"},
+      {name:"Alle Heimspiele",ics:"https://calendar.google.com/calendar/ical/bcphoenix1996@gmail.com/public/basic.ics"}
     ];
-
-    // Optional: Gesamt-Kalender (alle Teams). Wenn vorhanden, hier URL eintragen:
-    const COMBINED_CAL_URL = ""; // z. B. "https://…/alle-teams.ics"  (leer lassen, um auszublenden)
-
-    const list = document.getElementById('calendarList');
-
-    function toWebcal(url){
-      try{ const u=new URL(url); u.protocol='webcal:'; return u.toString(); }
-      catch{ return url.replace(/^https?:/,'webcal:'); }
-    }
-
-    function calendarItemHtml(item, index){
-      const webcal = toWebcal(item.ics);
-      return `
-        <div class="card kalender-item">
-          <div class="kalender-title">${item.name}</div>
-          <div class="row">
-            <a class="btn small" href="${webcal}">Direkt abonnieren</a>
-            <button class="btn small" data-copy="${item.ics}">Link kopieren</button>
-          </div>
-          <div class="url">${item.ics}</div>
-        </div>
-      `;
-    }
-
-    function render(){
-      let html = '';
-      if (COMBINED_CAL_URL){
-        html += calendarItemHtml({name:"Gesamt-Kalender (alle Mannschaften)", ics: COMBINED_CAL_URL}, 'combined');
-      }
-      CALENDARS.forEach((c, i)=> html += calendarItemHtml(c, i));
-      list.innerHTML = html;
-
-      // Copy buttons
-      document.querySelectorAll('button[data-copy]').forEach(btn=>{
-        btn.addEventListener('click', async ()=>{
-          try{
-            await navigator.clipboard.writeText(btn.getAttribute('data-copy'));
-            const t=btn.textContent; btn.textContent='Kopiert!'; setTimeout(()=>btn.textContent=t,1400);
-          }catch{
-            alert('Konnte den Link nicht in die Zwischenablage kopieren.');
-          }
-        });
-      });
-    }
-    render();
-
-    // Tabs
-    document.querySelectorAll('.tab-btn').forEach(b=>{
-      b.addEventListener('click', ()=>{
-        document.querySelectorAll('.tab-btn').forEach(x=>x.classList.remove('active'));
-        document.querySelectorAll('.section').forEach(x=>x.classList.remove('active'));
-        b.classList.add('active');
-        const target = document.querySelector(b.dataset.target);
-        if (target) target.classList.add('active');
-      });
-    });
-
-    // Meta (Stand)
-    document.getElementById('metaNote').textContent = `Stand: ${new Date().toLocaleDateString('de-DE')}`;
+    const toWebcal = url => url.replace(/^https?:/,"webcal:");
+    document.querySelector("#calendars").innerHTML = calendars.map(({name,ics}) => `<article class="card"><h2>${name}</h2><div class="buttons"><a href="${toWebcal(ics)}">Abonnieren</a><button data-ics="${ics}">Link kopieren</button></div></article>`).join("");
+    document.querySelectorAll("[data-ics]").forEach(button => button.onclick = async () => { await navigator.clipboard.writeText(button.dataset.ics); button.textContent="Kopiert"; setTimeout(()=>button.textContent="Link kopieren",1300); });
   </script>
 </body>
 </html>
